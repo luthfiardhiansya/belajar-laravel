@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MyController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -81,3 +83,113 @@ Route::get('nilai', function () {
     ];
     return view('nilai', compact('data'));
 });
+
+route::get('test-model',function(){
+$data = App\Models\Post::all();
+return $data;
+});
+
+route::get('create-data',function(){
+$data = App\Models\Post::create([
+    'title'=>'belajar PHP2',
+    'content'=>'lorem ipsum2'
+]);
+return $data;
+});
+
+Route::get('show-data/{id}', function ($id){
+    $data = App\Models\Post::find($id);
+    return $data;
+});
+
+Route::get('edit-data/{id}', function($id){
+$data = App\Models\Post::find($id);
+$data->title = "membangun project dengan laravel";
+$data->content = "haloooo";
+$data->save();
+return $data;
+});
+
+Route::get('delete-data/{id}', function($id){
+    $data = App\models\Post::find($id);
+    $data->delete();
+    //di kembalian (di alihkan) ke halaman test-model
+    return redirect('test-model');
+});
+
+Route::get('search/{cari}',function($query){
+    $data = App\Models\Post::where('title', 'like', '%' . $query . '%')->get();
+    return $data;
+});
+
+Route::get('greetings',[MyController::class,'hello']);
+Route::get('student', [MyController::class, 'siswa1']);
+
+Route::get('post',[PostController::class,'index']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Contoh di App\Http\Controllers\AuthController.php
+//    use Illuminate\Http\Request;
+//    use Illuminate\Support\Facades\Auth;
+
+//    public function showLoginForm()
+//    {
+//        return view('auth.login'); // Membuat view login
+//    }
+
+//    public function login(Request $request)
+//    {
+//        $credentials = $request->validate([
+//            'email' => 'required|email',
+//            'password' => 'required',
+//        ]);
+
+//        if (Auth::attempt($credentials)) {
+//            $request->session()->regenerate();
+//            return redirect()->intended('home'); // Redirect ke halaman yang diinginkan setelah login
+//        }
+
+//       return back()->withErrors([
+//            'email' => 'Kredensial tidak valid.',
+//        ]);
+//    }
+
+
+
+
+
+    // routes/web.php
+//    use App\Http\Controllers\AuthController;
+//    use Illuminate\Support\Facades\Route;
+//
+//    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+//    Route::post('/login', [AuthController::class, 'login'])->name('login
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -27,3 +27,31 @@ return new class extends Migration
         Schema::dropIfExists('produk');
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//object oriented progamming
+//apa itu syntax
+//version control system
