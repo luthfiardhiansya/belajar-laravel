@@ -127,6 +127,8 @@ Route::get('student', [MyController::class, 'siswa1']);
 
 Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
 
+Route::resource('biodata', App\Http\Controllers\BiodataController::class);
+
 
 
 
