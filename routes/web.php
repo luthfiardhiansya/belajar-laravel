@@ -125,8 +125,7 @@ Route::get('search/{cari}',function($query){
 Route::get('greetings',[MyController::class,'hello']);
 Route::get('student', [MyController::class, 'siswa1']);
 
-Route::get('post',[PostController::class,'index']);
-
+Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
 
 
 
