@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RelasiController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -129,8 +131,13 @@ Route::resource('produk', App\Http\Controllers\ProdukController::class)->middlew
 
 Route::resource('biodata', App\Http\Controllers\BiodataController::class);
 
+Route::get('/one-to-one', [RelasiController::class, 'oneToOne']);
 
+Route::get('/one-to-many', [RelasiController::class, 'oneToMany']);
 
+Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
+
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
 
 
 
