@@ -10,12 +10,12 @@ class DosenMahasiswaSeeder extends Seeder
     {
         $dosen1 = Dosen::create([
             'nama' => 'MR. Ironi',
-            'nipd' => 'D001',
+            'NIPD' => 'D001',
         ]);
 
         $dosen2 = Dosen::create([
             'nama' => 'Prof. Shani',
-            'nipd' => 'D002',
+            'NIPD' => 'D002',
         ]);
 
         // Tambahkan mahasiswa ke masing-masing dosen

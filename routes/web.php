@@ -139,6 +139,11 @@ Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
 
 Route::get('eloquent', [RelasiController::class, 'eloquent']);
 
+Route::resource('dosen', App\Http\Controllers\DosenController::class)->middleware('auth');
+
+Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware('auth');
+
+
 
 
 
