@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RelasiController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\WaliController;
 
 
 Route::get('/', function () {
@@ -143,7 +145,9 @@ Route::resource('dosen', App\Http\Controllers\DosenController::class)->middlewar
 
 Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware('auth');
 
+Route::resource('mahasiswa',App\Http\Controllers\MahasiswaController::class);
 
+Route::resource('wali', App\Http\Controllers\WaliController::class);
 
 
 
