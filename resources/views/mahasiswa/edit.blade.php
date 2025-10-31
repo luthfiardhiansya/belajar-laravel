@@ -19,15 +19,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Nomor Induk Mahasiswa</label>
-                            <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror">
-                            @error('nim')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
+                            <label class=form-label"">Nama Dosen</label>
                             <select name="id_dosen" class="form-control 
                             @error('id_dosen') is-invalid @enderror">
                                 @foreach ($dosen as $data)
@@ -43,6 +35,20 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="">Pilih Hobi</label>
+                            <select name="hobi[]" id="" class="form-control js-multiple" multiple>
+                                @foreach ($hobi as $data)
+                                <option value="{{ $data->id }}"
+                                    {{ in_array($data->id,
+                                    $mahasiswa->hobis->pluck('id')->ToArray()) ? 'selected' : ''
+                                    }}
+                                    >
+                                    {{$data->nama_hobi}}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                         </div>
                     </form>
@@ -51,3 +57,4 @@
         </div>
     </div>
 </div>
+@endsection

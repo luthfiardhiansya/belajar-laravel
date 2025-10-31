@@ -1,19 +1,43 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <span>{{ __('Detail Mahasiswa') }}</span>
-                    <a href="{{ route('mahasiswa.index') }}" class="btn btn-sm btn-outline-primary">Kembali</a>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-start">
+                        {{ __('Mahasiswa') }}
+                    </div>
+                    <div class="float-end">
+                        <a href="{{ route('mahasiswa.create') }}" class="btn btn-sm btn-outline-primary">Tambah Data</a>
+                    </div>
                 </div>
 
                 <div class="card-body">
-                    <h4 class="fw-bold">{{ $mahasiswa->nama }}</h4>
-                    <p class="mt-2 mb-1">nim: <strong>{{ $mahasiswa->nim }}</strong></p>
-                    <p class="mt-2 mb-1">Nama Dosen: <strong>{{ $mahasiswa->dosen->nama }}</strong></p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Nama Mahasiswa</th>
+                                <td>{{$mahasiswa->nama}}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Dosen</th>
+                                <td>{{$mahasiswa->dosen->nama}}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Wali</th>
+                                <td>{{$mahasiswa->wali->nama ?? '-'}}</td>
+                            </tr>
+                            <tr>
+                                <th>Daftar Hobi </th>
+                                <td>
+                                    @foreach ($mahasiswa->hobis as $hobi)
+                                    <li>{{$hobi->nama_hobi}}</li>
+                                    @endforeach
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

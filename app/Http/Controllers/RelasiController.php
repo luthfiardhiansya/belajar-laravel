@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Hobi;
 use App\Models\Dosen;
 use App\Models\Mahasiswa;
+use App\Models\Pelanggan;
+use App\Models\Transaksi;
+
 use Illuminate\Http\Request;
 
 class RelasiController extends Controller
