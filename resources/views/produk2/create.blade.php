@@ -4,35 +4,35 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header">Tambah Data Pelanggan</div>
+                <div class="card-header">Tambah Data Produk</div>
                 <div class="card-body">
-                    <form action="{{ route('pelanggan.store') }}" method="post">
+                    <form action="{{ route('produk2.store') }}" method="post">
                          @csrf
                         <div class="mb-3">
-                            <label class="form-label">Nama Pelanggan</label>
-                            <input type="text" name="nama" class="form-control 
-                            @error('nama') is-invalid @enderror">
-                            @error('nama')
+                            <label class="form-label">Nama Produk</label>
+                            <input type="text" name="nama_produk" class="form-control 
+                            @error('nama_produk') is-invalid @enderror">
+                            @error('nama_produk')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Alamat Pelanggan</label>
-                            <input type="text" name="alamat" class="form-control 
-                            @error('alamat') is-invalid @enderror">
-                            @error('alamat')
+                            <label class="form-label">Harga Produk</label>
+                            <input type="text" name="harga" class="form-control 
+                            @error('harga') is-invalid @enderror">
+                            @error('harga')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Nomor Handphone</label>
-                            <input type="varchar" name="no_hp" class="form-control 
-                            @error('no_hp') is-invalid @enderror">
-                            @error('no_hp')
+                            <label class="form-label">Stok Tersedia</label>
+                            <input type="varchar" name="stok" class="form-control 
+                            @error('stok') is-invalid @enderror">
+                            @error('stok')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

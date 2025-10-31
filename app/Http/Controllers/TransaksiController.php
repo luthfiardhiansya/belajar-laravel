@@ -9,7 +9,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $transaksis = Transaksi::with('pelanggan')->latest()->get();
+        $transaksis = Transaksi::all();
         return view('transaksi.index', compact('transaksis'));
     }
 
@@ -21,12 +21,11 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'kode_transaksi' => 'required|unique:transaksis',
-            'tanggal'        => 'required|date',
-            'pelanggan_id'   => 'required|exists:pelanggans,id',
-            'total_harga'    => 'required|numeric',
-        ]);
+        $transaksi                      = new Transaksi();
+        $transaksi->kode_transaksi      = $request->kode_transaksi;
+        $transaksi->tanggal             = $request->tanggal;
+        $transaksi->id_pelanggan        = $request->id_pelanggan;
+        $transaksi->total_harga         = $request->total_harga;
 
         $transaksi->save();
         return redirect()->route('transaksi.index');
@@ -44,7 +43,7 @@ class TransaksiController extends Controller
         $validated = $request->validate([
             'kode_transaksi' => 'required',
             'tanggal'        => 'required|date',
-            'pelanggan_id'   => 'required|exists:pelanggans,id',
+            'id_pelanggan'   => 'required|exists:pelanggans,id',
             'total_harga'    => 'required|numeric',
         ]);
 

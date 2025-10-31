@@ -8,6 +8,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\WaliController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\Produk2Controller;
 
 
 Route::get('/', function () {
@@ -154,6 +155,9 @@ Route::resource('wali', App\Http\Controllers\WaliController::class);
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
 
 Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+
+Route::resource('produk2', App\Http\Controllers\Produk2Controller::class);
+
 
 
 
