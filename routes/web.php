@@ -154,9 +154,17 @@ Route::resource('wali', App\Http\Controllers\WaliController::class);
 
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
 
-Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+Route::resource('produk', App\Http\Controllers\ProdukController::class);
 
-Route::resource('produk2', App\Http\Controllers\Produk2Controller::class);
+Route::prefix('transaksi')->group(function () {
+    Route::get('/transaksi/search', [TransaksiController::class, 'search'])->name('transaksi.search');
+    Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+    Route::resource('produk', App\Http\Controllers\ProdukController::class);
+    Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+    Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);
+
+})->middleware('auth');
+
 
 
 
