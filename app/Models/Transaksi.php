@@ -22,7 +22,7 @@ class Transaksi extends Model
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
-    public function produk2()
+    public function produks()
     {
     return $this->belongstoMany(Transaksi::class, 'detail_transaksi','id_transaksi', 'id_produk2')
         ->withPivot('jumlah', 'sub_total')

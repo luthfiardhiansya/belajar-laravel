@@ -8,7 +8,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\WaliController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\Produk2Controller;
+use App\Http\Controllers\ProdukController;
 
 
 Route::get('/', function () {
@@ -132,8 +132,6 @@ Route::get('search/{cari}',function($query){
 Route::get('greetings',[MyController::class,'hello']);
 Route::get('student', [MyController::class, 'siswa1']);
 
-Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
-
 Route::resource('biodata', App\Http\Controllers\BiodataController::class);
 
 Route::get('/one-to-one', [RelasiController::class, 'oneToOne']);
@@ -152,11 +150,7 @@ Route::resource('mahasiswa',App\Http\Controllers\MahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
 
-Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
-
-Route::resource('produk', App\Http\Controllers\ProdukController::class);
-
-Route::prefix('transaksi')->group(function () {
+Route::prefix('latihan')->group(function () {
     Route::get('/transaksi/search', [TransaksiController::class, 'search'])->name('transaksi.search');
     Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
     Route::resource('produk', App\Http\Controllers\ProdukController::class);

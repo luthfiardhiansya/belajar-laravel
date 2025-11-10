@@ -4,7 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Produk2 extends Model
+class Produk extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Produk2 extends Model
 
     public function Transaksis()
     {
-        return $this->belongsMany(Transaksi::class, 'detail_transaksi', 'id_produk2', 'id_transaksi')
+        return $this->belongsMany(Transaksi::class, 'detail_transaksi', 'id_produk', 'id_transaksi')
             ->withPivot('jumlah', 'sub_total')
             ->withTimestamps();
     }

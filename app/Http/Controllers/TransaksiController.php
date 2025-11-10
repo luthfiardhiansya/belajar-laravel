@@ -31,7 +31,6 @@ class TransaksiController extends Controller
             'jumlah.*'     => 'integer|min:1',
         ]);
 
-        // Buat transaksi utama dulu
         $kode                      = 'TRX-' . strtoupper(uniqid());
         $transaksi                 = new Transaksi();
         $transaksi->kode_transaksi = $kode;

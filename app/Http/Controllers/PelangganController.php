@@ -10,12 +10,12 @@ class PelangganController extends Controller
     public function index()
     {
         $pelanggan = Pelanggan::all();
-        return view('pelanggan.index', compact('pelanggan'));
+        return view('latihan.pelanggan.index', compact('pelanggan'));
     }
 
     public function create()
     {
-        return view('pelanggan.create');
+        return view('latihan.pelanggan.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class PelangganController extends Controller
     public function show(string $id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
-        return view('pelanggan.show', compact('pelanggan'));
+        return view('latihan.pelanggan.show', compact('pelanggan'));
     }
 
     /**
@@ -50,7 +50,7 @@ class PelangganController extends Controller
     public function edit(string $id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
-        return view('pelanggan.edit', compact('pelanggan'));
+        return view('latihan.pelanggan.edit', compact('pelanggan'));
     }
 
     /**
