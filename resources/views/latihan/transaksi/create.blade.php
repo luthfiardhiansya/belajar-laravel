@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3 class="mb-4">Tambah Transaksi Baru</h3>
+    <h3 class="text-center mb-4">Tambah Transaksi Baru</h3>
 
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -21,7 +21,7 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="id_pelanggan" class="form-label">Pelanggan</label>
+                    <label for="id_pelanggan" class="form-label ">Pelanggan</label>
                     <select name="id_pelanggan" id="id_pelanggan" class="form-select" required>
                         <option value="">-- Pilih Pelanggan --</option>
                         @foreach ($pelanggan as $p)
@@ -68,11 +68,11 @@
                     <button type="button" class="btn btn-sm btn-secondary" id="btn-add">+ Tambah Produk</button>
                 </div>
 
-                <div class="text-end mb-4">
-                    <h5>Total Harga: <span id="totalHarga">Rp0</span></h5>
+                <div class="text-center mb-4">
+                    <h4>Total Harga: <span id="totalHarga">Rp0</span></h4>
                 </div>
 
-                <div class="text-end">
+                <div class="text-center ">
                     <button type="submit" class="btn btn-primary btn-sm">Simpan Transaksi</button>
                 </div>
             </form>

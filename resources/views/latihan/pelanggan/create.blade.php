@@ -30,9 +30,9 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nomor Handphone</label>
-                            <input type="varchar" name="no_hp" class="form-control 
-                            @error('no_hp') is-invalid @enderror">
-                            @error('no_hp')
+                            <input type="varchar" name="no_telepon" class="form-control 
+                            @error('no_telepon') is-invalid @enderror">
+                            @error('no_telepon')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

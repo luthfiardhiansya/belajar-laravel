@@ -66,7 +66,7 @@ class TransaksiController extends Controller
         // update total harga transaksi
         $transaksi->update(['total_harga' => $totalHarga]);
 
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil disimpan!');
+        return redirect()->route('transaksi.index');
     }
 
     public function show($id)
@@ -140,7 +140,7 @@ class TransaksiController extends Controller
         // update total harga
         $transaksi->update(['total_harga' => $totalHarga]);
 
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil diperbarui!');
+        return redirect()->route('transaksi.index');
     }
 
     public function destroy($id)
@@ -162,7 +162,7 @@ class TransaksiController extends Controller
         // Hapus transaksi utama
         $transaksi->delete();
 
-        return redirect()->route('transaksi.index')->with('success', 'Transaksi berhasil dihapus dan stok dikembalikan!');
+        return redirect()->route('transaksi.index');
     }
 
     public function search(Request $request)

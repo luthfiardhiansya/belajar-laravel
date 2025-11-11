@@ -24,7 +24,7 @@ class Transaksi extends Model
     }
     public function produks()
     {
-    return $this->belongstoMany(Transaksi::class, 'detail_transaksi','id_transaksi', 'id_produk2')
+    return $this->belongstoMany(Transaksi::class, 'detail_transaksi','id_transaksi', 'id_produk')
         ->withPivot('jumlah', 'sub_total')
         ->withTimestamps();
     }

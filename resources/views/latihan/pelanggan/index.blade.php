@@ -27,12 +27,12 @@
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @forelse ($pelanggans as $data)
+                                @forelse ($pelanggan as $data)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->alamat}}</td>
-                                    <td>{{ $data->no_hp}}</td>
+                                    <td>{{ $data->no_telepon}}</td>
                                     <td>
                                         <form action="{{ route('pelanggan.destroy', $data->id) }}" method="POST">
                                             @csrf
